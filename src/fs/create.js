@@ -1,5 +1,19 @@
-const create = async () => {
-    // Write your code here 
+import fs from "fs";
+
+const create = async (file, content) => {
+  fs.exists(file, (err) => {
+    if (err) {
+      throw new Error("FS operation failed");
+    } else {
+      fs.writeFile(file, content, (err) => {
+        if (err) {
+          throw new Error("FS operation failed");
+        } else {
+          console.log("File created!");
+        }
+      });
+    }
+  });
 };
 
-await create();
+await create("fresh.txt", "I am fresh and young");
