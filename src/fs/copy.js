@@ -1,10 +1,10 @@
 import fs from "fs";
 
 const copy = async (folder) => {
-  fs.exists(folder, (err) => {
-    if (err) {
-      fs.exists(`${folder}_copy`, (err) => {
-        if (err) {
+  fs.exists(folder, (status) => {
+    if (status) {
+      fs.exists(`${folder}_copy`, (status) => {
+        if (status) {
           throw new Error(`${folder}_copy folder already exists!`);
         } else {
           fs.readdir(folder, (err, data) => {

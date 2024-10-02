@@ -1,8 +1,8 @@
 import fs from "fs";
 
 const create = async (file, content) => {
-  fs.exists(file, (err) => {
-    if (err) {
+  fs.exists(file, (status) => {
+    if (status) {
       throw new Error("FS operation failed");
     } else {
       fs.writeFile(file, content, (err) => {

@@ -1,9 +1,9 @@
 import fs from "fs";
 const rename = async (oldFile, newFile) => {
-  fs.exists(oldFile, (err) => {
-    if (err) {
-      fs.exists(newFile, (err) => {
-        if (err) {
+  fs.exists(oldFile, (status) => {
+    if (status) {
+      fs.exists(newFile, (status) => {
+        if (status) {
           throw new Error(`${newFile} already exists!`);
         } else {
           fs.rename(oldFile, newFile, (err) => {

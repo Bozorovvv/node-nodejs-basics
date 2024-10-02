@@ -1,8 +1,8 @@
 import fs from "fs";
 
 const remove = async (file) => {
-  fs.exists(file, (err) => {
-    if (err) {
+  fs.exists(file, (status) => {
+    if (status) {
       fs.rm(file, (err) => {
         if (err) {
           throw new Error("FS operation failed");
