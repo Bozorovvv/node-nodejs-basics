@@ -3,11 +3,11 @@ import { createReadStream, createWriteStream } from "fs";
 
 const decompress = async (gzipFile, file) => {
   const readableStream = createReadStream(gzipFile);
-  const writeableStream = createWriteStream(file);
   const gunzip = createGunzip();
-
+  const writeableStream = createWriteStream(file);
   try {
     readableStream.pipe(gunzip).pipe(writeableStream);
+    console.log("Success");
   } catch (error) {
     console.log(error);
   }
